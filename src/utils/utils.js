@@ -26,3 +26,28 @@ export function formatTimestamp(timestamp) {
 
     return formattedTime;
 }
+
+export function newNotification(title, message, id) {
+    const body = document.querySelector("body");
+    const notification = document.createElement("div");
+    const toast = `
+        <div id="${id}-toast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+        <div class="toast-header">
+        <strong class="me-auto font-monospace">🔥FireChat - ${title}</strong>
+        <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+        </div>
+        <div class="toast-body">${message}</div>
+        </div>
+    `;
+
+    notification.id = id;
+    notification.classList.add("toast-container", "position-fixed", "top-0", "end-0", "p-3");
+    notification.innerHTML = toast;
+
+    body.appendChild(notification);
+
+    const toastEl = document.getElementById(`${id}-toast`);
+    const toastInstance = bootstrap.Toast.getOrCreateInstance(toastEl);
+    
+    return toastInstance;
+}

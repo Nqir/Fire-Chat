@@ -37,14 +37,14 @@ export async function sendMessage() {
 function displayMessage(data, id) {
     const chatbox = document.getElementById("chat-box");
     const messageContainer = document.createElement("div");
-
+    const time = formatTimestamp(data.timeSent);
     messageContainer.id = id;
     
     messageContainer.innerHTML = `
         <div id="container-${id}" class="bg-primary d-inline-block p-1 m-2 rounded-2 text-light">
             <div class="message-header">
                 <span class="message-username fw-medium">${data.msgFrom}</span>
-                <span class="message-time fw-medium text-secondary">${formatTimestamp(data.timeSent)}</span>
+                <span class="message-time fw-medium text-secondary">${time}</span>
             </div>
             <div id="message-${id}" class="message-body">
                 ${data.message}
