@@ -46,7 +46,7 @@ function displayMessage(data, id) {
                 <span class="message-username fw-medium">${data.msgFrom}</span>
                 <span class="message-time fw-medium text-secondary">${time}</span>
             </div>
-            <div id="message-${id}" class="message-body">
+            <div id="message-${id}" class="message-body fw-medium">
                 ${data.message}
             </div>
         </div>

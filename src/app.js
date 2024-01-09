@@ -3,6 +3,7 @@ import { getAuth } from "firebase/auth";
 import { checkUserAuth, deleteUser, showGoogleSignIn, signOutUser } from "./signin";
 import { sendMessage } from "./firechat";
 import { auth } from "./firebase";
+import { switchTheme } from "./theme";
 
 const navbar = document.getElementById('navbar');
 
@@ -19,6 +20,8 @@ const deleteAccountButton = document.getElementById('delete-account');
 
 const fireChat = document.getElementById('fire-chat');
 
+const themeSwitcher = document.getElementById('theme-switcher');
+
 checkUserAuth(onSignedIn, onSignedOut);
 
 // Event Listeners
@@ -32,6 +35,7 @@ signOutButton.addEventListener("click", signOutUser);
 deleteAccountButton.addEventListener("click", deleteUser);
 messageInput.addEventListener("input", updateSendMsgBtn);
 sendMsgBtn.addEventListener("click", sendMessage);
+themeSwitcher.addEventListener("click", switchTheme);
 
 // Functions
 function onSignedIn() {

@@ -51,10 +51,10 @@ export function deleteUser() {
     const user = auth.currentUser;
     user.delete()
         .then(() => {
-            location.reload();
-            window.onload = (() => {
-                newNotification("Successful Account Deletion", "Account deleted✅", "account-deletion-notif").show();
-            });
+            newNotification("Successful Account Deletion", "Account deleted✅", "account-deletion-notif").show();
+            setTimeout(() => {
+                location.reload();
+            }, 1000);
         })
         .catch(error => {
             newNotification("Unsuccessful Account Deletion", error.message, "unsuccessful-account-deletion-notif").show();
